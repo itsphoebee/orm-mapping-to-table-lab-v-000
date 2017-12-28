@@ -32,7 +32,7 @@ class Student
     INSERT INTO students (name, grade) VALUES (?,?)
     SQL
     DB[:conn].execute(sql, self.name, self.grade)
-    self.id = DB[:conn].execute("SELECT last_insert_rowid() FROM students").flatten[0]
+    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students").flatten[0]
   end
 
   def self.create(name:, grade:)
